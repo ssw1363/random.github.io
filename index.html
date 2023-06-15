@@ -54,7 +54,7 @@
       var end = Number.parseInt(end_num.value) + 1;
       // 설정된 값에서 난수 뽑기
       var random = Math.floor(Math.random() * (end - start) + start);
-      if (picked_list.length == end - 1) {
+      if (picked_list.length == end - 2) {
         result_box.innerText = "질문 종료";
         console.log(picked_list);
       } else {
