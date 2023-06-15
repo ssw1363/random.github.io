@@ -83,7 +83,6 @@
         case "setting":
           header.classList.replace("setting", "main");
           set_page("content_main");
-          picked_list.length = 0;
           break;
         case "result":
           header.classList.replace("result", "main");
@@ -102,6 +101,7 @@
       var cur_page = document.getElementById(to);
       cur_page.style.display = "block";
       if (to == "content_result") {
+        picked_list.length = 0;
         pick_number();
       }
     }
