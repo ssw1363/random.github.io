@@ -11,17 +11,16 @@
     <!-- 페이지 3개 -->
     <!-- 기본((main) , 결과(result) , 세팅(setting)  -->
     <div class="header main">
-      <div class="header_btn"></div>
+      <div class="header_btn" onclick="swich_page()"></div>
       매운맛은 57번부터 ♥ <br />
     </div>
     <div class="content">
-      <div class="btn_box">
-        <img
-          id="pick_btn"
-          onclick="pick_number()"
-          src="./images/yes.png"
-          style=""
-        />
+      <div id="content_main" class="content_box">
+        <img id="pick_btn" onclick="pick_number()" src="./images/yes.png" />
+      </div>
+      <div id="content_setting" class="content_box"></div>
+      <div id="content_result" class="content_box">
+        <img id="pick_btn" onclick="pick_number()" src="./images/yes.png" />
       </div>
     </div>
     <div class="footer"></div>
@@ -30,6 +29,10 @@
     let list;
     let start = 1;
     let end = 100;
+    const header = document.getElementsByClassName("header")[0];
+    const content = document.getElementsByClassName("content")[0];
+    const content_box = document.getElementsByClassName("content_box");
+
     async function load_json() {
       let data = await fetch("./resource/question_list.json");
       list = await data.json();
@@ -39,6 +42,36 @@
       // 설정된 값에서 난수 뽑기
       var random = Math.floor(Math.random() * (end - start) + start);
       alert(list[random]);
+    }
+    function swich_page() {
+      var cur_page = header.classList[1];
+      console.log(cur_page);
+      switch (cur_page) {
+        case "main":
+          header.classList.replace("main", "setting");
+          // header.classList.remove("main");
+          // header.classList.add("setting");
+          set_page("content_setting");
+        case "setting":
+          header.classList.replace("setting", "main");
+          // header.classList.remove("setting");
+          // header.classList.add("main");
+          set_page("content_main");
+          break;
+        case "result":
+          header.classList.replace("result", "main");
+          set_page("content_main");
+          break;
+      }
+      header.classList[1];
+    }
+    function set_page(cur) {
+      for (let i = 0; i < content_box.length; i++) {
+        const element = content_box[i];
+        element.style.display = "none";
+      }
+      var cur_page = document.getElementById(cur);
+      cur_page.style.display = "block";
     }
   </script>
 </html>
