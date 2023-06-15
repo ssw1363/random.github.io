@@ -19,13 +19,18 @@
         <img id="pick_btn" onclick="pick_number()" src="./images/yes.png" />
       </div>
       <div id="content_setting" class="content_box">
-        <label for="start">시작번호</label>
+        <label for="start">시작번호 </label>
         <input id="start" name="start" type="number" value="1" /><br />
-        <label for="end">마지막번호</label>
+        <label for="end">마지막번호 </label>
         <input type="number" id="end" name="end" value="56" />
       </div>
       <div id="content_result" class="content_box">
-        <img id="pick_btn" onclick="pick_number()" src="./images/yes.png" />
+        <span id="result_bix"></span>
+        <img
+          id="again_btn"
+          onclick="pick_number()"
+          src="./images/again_btn.png"
+        />
       </div>
     </div>
     <div id="footer"></div>
@@ -37,7 +42,7 @@
     const header = document.getElementById("header");
     const content = document.getElementById("content");
     const content_box = document.getElementsByClassName("content_box");
-
+    const picked_list = [];
     async function load_json() {
       let data = await fetch("./resource/question_list.json");
       list = await data.json();
@@ -46,9 +51,12 @@
     function pick_number() {
       // 설정된 값에서 난수 뽑기
       var random = Math.floor(
-        Math.random() * (end.value - start.value) + start.value
+        Math.random() * (end.value - start.value) + start.value + 1
       );
-      alert(list[random]);
+      // alert(list[random]);
+      header.classList.replace("main", "result");
+      set_page("content_result");
+      result_bix.innerText = list[random];
     }
     function swich_page() {
       var cur_page = header.classList[0];
