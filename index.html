@@ -54,8 +54,10 @@
         Math.random() * (end.value - start.value) + start.value + 1
       );
       // alert(list[random]);
-      if (picked_list.includes(picked_list)) {
-        pick_number();
+      if (picked_list.length == end.value) {
+        result_box.innerText = "질문 종료";
+        console.log(picked_list);
+      } else if (picked_list.includes(picked_list)) {
       } else {
         header.classList.replace("main", "result");
         set_page("content_result");
@@ -68,18 +70,15 @@
       switch (cur_page) {
         case "main":
           header.classList.replace("main", "setting");
-          console.log("1", header);
           set_page("content_setting");
           break;
         case "setting":
           header.classList.replace("setting", "main");
-          console.log("2", header);
           set_page("content_main");
           picked_list.length = 0;
           break;
         case "result":
           header.classList.replace("result", "main");
-          console.log("3", header);
           set_page("content_main");
           break;
       }
