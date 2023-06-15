@@ -49,7 +49,7 @@ body {
   margin: 25% 25%;
 }
 #content .content_box #result_bix {
-  font-size: 3em;
+  font-size: 20px;
   margin-bottom: 2rem;
 }
 #content .content_box #result_box {
@@ -57,13 +57,13 @@ body {
   top: 10%;
   left: 10%;
   width: 80%;
-  height: 25%;
+  height: 15%;
   border: 1px solid rgb(0, 0, 0, 0.5);
   background-color: aliceblue;
 }
 #content .content_box #again_btn {
   position: absolute;
-  top: 40%;
+  top: 30%;
   left: 35%;
   width: 30%;
 }
