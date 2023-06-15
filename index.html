@@ -12,10 +12,9 @@
     <div>13</div>
   </body>
   <script>
-    window.onload = function () {
-      let list = fetch("./resource/question_list.json").then((res) => {
-        return res.json();
-      });
+    window.onload = async function () {
+      let data = await fetch("./resource/question_list.json");
+      const list = await data.json();
     };
 
     console.log(list);
