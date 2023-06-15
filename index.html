@@ -10,14 +10,21 @@
   </head>
   <body>
     <div>13</div>
+    <a onclick="pick_number()"></a>
   </body>
   <script>
     let list;
+    let start = 1;
+    let end = 100;
     async function load_json() {
       let data = await fetch("./resource/question_list.json");
       list = await data.json();
     }
     load_json();
-    console.log(list);
+    function pick_number() {
+      var random = Math.random() * (end - start) + start;
+      alert(list[q_list]);
+      alert(random);
+    }
   </script>
 </html>
