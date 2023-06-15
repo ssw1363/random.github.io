@@ -9,10 +9,10 @@ body {
 #footer {
   width: 100%;
   text-align: center;
+  position: relative;
 }
 #header {
   height: 10%;
-  position: relative;
 }
 #content {
   height: 80%;
@@ -52,7 +52,18 @@ body {
   font-size: 3em;
   margin-bottom: 2rem;
 }
+#content .content_box #result_box {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 25%;
+  border: 1px solid rgb(0, 0, 0, 0.5);
+  background-color: aliceblue;
+}
 #content .content_box #again_btn {
-  width: 40%;
-  margin: 25% 30%;
+  position: absolute;
+  top: 40%;
+  left: 35%;
+  width: 30%;
 }

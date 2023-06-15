@@ -25,7 +25,7 @@
         <input type="number" id="end" name="end" value="56" />
       </div>
       <div id="content_result" class="content_box">
-        <span id="result_bix"></span><br />
+        <span id="result_box"></span><br />
         <img
           id="again_btn"
           onclick="pick_number()"
@@ -59,7 +59,7 @@
       } else {
         header.classList.replace("main", "result");
         set_page("content_result");
-        result_bix.innerText = list[random];
+        result_box.innerText = list[random];
         picked_list.push(random);
       }
     }
