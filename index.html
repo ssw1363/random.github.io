@@ -39,6 +39,7 @@
     let list;
     const header = document.getElementById("header");
     const content = document.getElementById("content");
+    const again_btn = document.getElementById("again_btn");
     const content_box = document.getElementsByClassName("content_box");
     const picked_list = [];
     // const start = document.getElementById("start");
@@ -50,10 +51,9 @@
     load_json();
     function pick_number() {
       var start = Number.parseInt(start_num.value);
-      var end = Number.parseInt(end_num.value);
+      var end = Number.parseInt(end_num.value) + 1;
       // 설정된 값에서 난수 뽑기
-      var random = Math.floor(Math.random() * (end - start)) + start;
-      // console.log("픽번호", random, " 선택 리스트 개수", picked_list.length);
+      var random = Math.floor(Math.random() * (end - start) + start);
       if (picked_list.length == end - 1) {
         result_box.innerText = "질문 종료";
         console.log(picked_list);
