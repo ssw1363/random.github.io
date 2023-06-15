@@ -10,7 +10,7 @@
   </head>
   <body>
     <div>13</div>
-    <a onclick="pick_number()"></a>
+    <a onclick="pick_number()">랜덤 뽑기</a>
   </body>
   <script>
     let list;
@@ -23,7 +23,7 @@
     load_json();
     function pick_number() {
       var random = Math.random() * (end - start) + start;
-      alert(list[q_list]);
+      alert(list["q_list"]);
       alert(random);
     }
   </script>
