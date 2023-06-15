@@ -44,10 +44,15 @@ body {
   width: 100%;
   height: 100%;
 }
+#content .content_box #pick_btn {
+  width: 50%;
+  margin: 25% 25%;
+}
 #content .content_box #result_bix {
   font-size: 3rem;
+  margin-bottom: 2rem;
 }
-#pick_btn {
-  width: 50%;
-  margin: 25% auto;
+#content .content_box #again_btn {
+  width: 40%;
+  margin: 25% 30%;
 }
