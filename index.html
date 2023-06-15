@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
     <script src="./js/main.js"></script>
-    <!-- <script src="./resource/question_list.json" type="text/javascript"></script> -->
     <title>YES/NO 랜덤 질문</title>
   </head>
   <body>
-    매운맛은 57번부터 ♥
-    <a onclick="pick_number()">랜덤 뽑기</a>
+    매운맛은 57번부터 ♥ <br />
+    <div class="btn_box">
+      <img
+        id="pick_btn"
+        onclick="pick_number()"
+        src="./resource/yes.png"
+        alt=""
+      />
+    </div>
   </body>
   <script>
     let list;
