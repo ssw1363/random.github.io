@@ -15,7 +15,11 @@
     </div>
     <div id="content">
       <div id="content_main" class="content_box">
-        <img id="pick_btn" onclick="pick_number()" src="./images/yes.png" />
+        <img
+          id="pick_btn"
+          onclick="set_page('content_result')"
+          src="./images/yes.png"
+        />
       </div>
       <div id="content_setting" class="content_box">
         <span style="font-size: 1.5rem">매운맛은 57번부터 ♥</span> <br />
@@ -51,24 +55,22 @@
     load_json();
     function pick_number() {
       var start = Number.parseInt(start_num.value);
-      var end = Number.parseInt(end_num.value);
+      var end = Number.parseInt(end_num.value) + 1;
       // 설정된 값에서 난수 뽑기
       var random = Math.floor(Math.random() * (end - start) + start);
-      if (picked_list.length == end - start) {
-        result_box.innerText = list[random] + "\n질문 종료";
+      if (picked_list.includes(random)) {
+        pick_number();
+      } else if (picked_list.length == end - start - 1) {
+        result_box.innerText = list[random - 1] + "\n질문 종료";
         // result_box.innerText = random + "\n질문 종료";
-        document.getElementById("again_btn").disabled = true;
+        picked_list.push(random);
         console.log(picked_list);
+        again_btn.removeAttribute("onclick");
       } else {
-        if (picked_list.includes(random)) {
-          pick_number();
-        } else {
-          header.classList.replace("main", "result");
-          set_page("content_result");
-          result_box.innerText = list[random];
-          // result_box.innerText = random;
-          picked_list.push(random);
-        }
+        header.classList.replace("main", "result");
+        result_box.innerText = list[random - 1];
+        // result_box.innerText = random;
+        picked_list.push(random);
       }
     }
     function swich_page() {
@@ -86,18 +88,22 @@
         case "result":
           header.classList.replace("result", "main");
           set_page("content_main");
-          document.getElementById("again_btn").disabled = false;
+          again_btn.setAttribute("onclick", "pick_number()");
+
           break;
       }
       header.classList[1];
     }
-    function set_page(cur) {
+    function set_page(to) {
       for (let i = 0; i < content_box.length; i++) {
         const element = content_box[i];
         element.style.display = "none";
       }
-      var cur_page = document.getElementById(cur);
+      var cur_page = document.getElementById(to);
       cur_page.style.display = "block";
+      if (to == "content_result") {
+        pick_number();
+      }
     }
   </script>
 </html>
