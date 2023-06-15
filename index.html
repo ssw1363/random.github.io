@@ -10,27 +10,32 @@
   <body>
     <!-- 페이지 3개 -->
     <!-- 기본((main) , 결과(result) , 세팅(setting)  -->
-    <div class="header main">
+    <div id="header" class="main">
       <div class="header_btn" onclick="swich_page()"></div>
       매운맛은 57번부터 ♥ <br />
     </div>
-    <div class="content">
+    <div id="content">
       <div id="content_main" class="content_box">
         <img id="pick_btn" onclick="pick_number()" src="./images/yes.png" />
       </div>
-      <div id="content_setting" class="content_box"></div>
+      <div id="content_setting" class="content_box">
+        <label for="start">시작번호</label>
+        <input id="start" name="start" type="number" value="1" /><br />
+        <label for="end">마지막번호</label>
+        <input type="number" id="end" name="end" value="56" />
+      </div>
       <div id="content_result" class="content_box">
         <img id="pick_btn" onclick="pick_number()" src="./images/yes.png" />
       </div>
     </div>
-    <div class="footer"></div>
+    <div id="footer"></div>
   </body>
   <script>
     let list;
-    let start = 1;
-    let end = 100;
-    const header = document.getElementsByClassName("header")[0];
-    const content = document.getElementsByClassName("content")[0];
+    // let start ;
+    // let end = 100;
+    const header = document.getElementById("header");
+    const content = document.getElementById("content");
     const content_box = document.getElementsByClassName("content_box");
 
     async function load_json() {
@@ -40,26 +45,27 @@
     load_json();
     function pick_number() {
       // 설정된 값에서 난수 뽑기
-      var random = Math.floor(Math.random() * (end - start) + start);
+      var random = Math.floor(
+        Math.random() * (end.value - start.value) + start.value
+      );
       alert(list[random]);
     }
     function swich_page() {
-      var cur_page = header.classList[1];
-      console.log(cur_page);
+      var cur_page = header.classList[0];
       switch (cur_page) {
         case "main":
           header.classList.replace("main", "setting");
-          // header.classList.remove("main");
-          // header.classList.add("setting");
+          console.log("1", header);
           set_page("content_setting");
+          break;
         case "setting":
           header.classList.replace("setting", "main");
-          // header.classList.remove("setting");
-          // header.classList.add("main");
+          console.log("2", header);
           set_page("content_main");
           break;
         case "result":
           header.classList.replace("result", "main");
+          console.log("3", header);
           set_page("content_main");
           break;
       }
