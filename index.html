@@ -19,10 +19,10 @@
       </div>
       <div id="content_setting" class="content_box">
         <span style="font-size: 1.5rem">매운맛은 57번부터 ♥</span> <br />
-        <label for="start">시작번호 </label>
-        <input id="start" name="start" type="number" value="1" /><br />
-        <label for="end">마지막번호 </label>
-        <input type="number" id="end" name="end" value="56" />
+        <label for="start_num">시작번호 </label>
+        <input id="start_num" name="start_num" type="number" value="1" /><br />
+        <label for="end_num">마지막번호 </label>
+        <input id="end_num" name="end_num" type="number" value="56" />
       </div>
       <div id="content_result" class="content_box">
         <span id="result_box">123123</span><br />
@@ -41,27 +41,31 @@
     const content = document.getElementById("content");
     const content_box = document.getElementsByClassName("content_box");
     const picked_list = [];
+    // const start = document.getElementById("start");
+    // const end = document.getElementById("end");
     async function load_json() {
       let data = await fetch("./resource/question_list.json");
       list = await data.json();
     }
     load_json();
     function pick_number() {
+      var start = Number.parseInt(start_num.value);
+      var end = Number.parseInt(end_num.value);
       // 설정된 값에서 난수 뽑기
-      var random =
-        Math.floor(Math.random() * (end.value - start.value)) +
-        Number.parseInt(start.value);
-      // alert(list[random]);
-      if (picked_list.length == end.value) {
+      var random = Math.floor(Math.random() * (end - start)) + start;
+      // console.log("픽번호", random, " 선택 리스트 개수", picked_list.length);
+      if (picked_list.length == end - 1) {
         result_box.innerText = "질문 종료";
         console.log(picked_list);
-      } else if (picked_list.includes(picked_list)) {
-        pick_number();
       } else {
-        header.classList.replace("main", "result");
-        set_page("content_result");
-        result_box.innerText = list[random];
-        picked_list.push(random);
+        if (picked_list.includes(random)) {
+          pick_number();
+        } else {
+          header.classList.replace("main", "result");
+          set_page("content_result");
+          result_box.innerText = list[random];
+          picked_list.push(random);
+        }
       }
     }
     function swich_page() {
