@@ -35,13 +35,17 @@ body {
   background-image: url("../images/turn-back.png");
 }
 #header.result .header_btn {
+  background-image: url("../images/home.png");
 }
 #content :where(#content_setting, #content_result) {
   display: none;
 }
-.content_box {
+#content .content_box {
   width: 100%;
   height: 100%;
+}
+#content .content_box #result_bix {
+  font-size: 3rem;
 }
 #pick_btn {
   width: 50%;
