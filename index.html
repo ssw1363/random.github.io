@@ -9,7 +9,7 @@
     <title>YES/NO 랜덤 질문</title>
   </head>
   <body>
-    <div>13</div>
+    매운맛은 57번부터 ♥
     <a onclick="pick_number()">랜덤 뽑기</a>
   </body>
   <script>
@@ -22,9 +22,9 @@
     }
     load_json();
     function pick_number() {
-      var random = Math.random() * (end - start) + start;
-      alert(list["q_list"]);
-      alert(random);
+      // 설정된 값에서 난수 뽑기
+      var random = Math.floor(Math.random() * (end - start) + start);
+      alert(list[random]);
     }
   </script>
 </html>
