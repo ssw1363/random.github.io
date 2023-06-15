@@ -37,8 +37,6 @@
   </body>
   <script>
     let list;
-    // let start ;
-    // let end = 100;
     const header = document.getElementById("header");
     const content = document.getElementById("content");
     const content_box = document.getElementsByClassName("content_box");
@@ -57,6 +55,7 @@
         result_box.innerText = "질문 종료";
         console.log(picked_list);
       } else if (picked_list.includes(picked_list)) {
+        pick_number();
       } else {
         header.classList.replace("main", "result");
         set_page("content_result");
