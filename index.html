@@ -55,7 +55,7 @@
       // 설정된 값에서 난수 뽑기
       var random = Math.floor(Math.random() * (end - start) + start);
       if (picked_list.length == end - 2) {
-        result_box.innerText = "질문 종료";
+        result_box.innerText = list[random] + "\n질문 종료";
         console.log(picked_list);
       } else {
         if (picked_list.includes(random)) {
