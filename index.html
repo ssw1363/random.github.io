@@ -54,9 +54,14 @@
         Math.random() * (end.value - start.value) + start.value + 1
       );
       // alert(list[random]);
-      header.classList.replace("main", "result");
-      set_page("content_result");
-      result_bix.innerText = list[random];
+      if (picked_list.includes(picked_list)) {
+        pick_number();
+      } else {
+        header.classList.replace("main", "result");
+        set_page("content_result");
+        result_bix.innerText = list[random];
+        picked_list.push(random);
+      }
     }
     function swich_page() {
       var cur_page = header.classList[0];
@@ -70,6 +75,7 @@
           header.classList.replace("setting", "main");
           console.log("2", header);
           set_page("content_main");
+          picked_list.length = 0;
           break;
         case "result":
           header.classList.replace("result", "main");
