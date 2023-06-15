@@ -50,9 +50,8 @@
     load_json();
     function pick_number() {
       // 설정된 값에서 난수 뽑기
-      var random = Math.floor(
-        Math.random() * (end.value - start.value) + start.value
-      );
+      var random =
+        Math.floor(Math.random() * (end.value - start.value)) + start.value;
       // alert(list[random]);
       if (picked_list.length == end.value) {
         result_box.innerText = "질문 종료";
