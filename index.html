@@ -3,16 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <script src="/js/main.js"></script>
-    <script src="/resource/question_list.json" type="text/javascript"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/main.js"></script>
+    <!-- <script src="./resource/question_list.json" type="text/javascript"></script> -->
     <title>YES/NO 랜덤 질문</title>
   </head>
   <body>
     <div>13</div>
   </body>
   <script>
-    const q_list = JSON.parse(JSON.stringify(q_list));
-    console.log(q_list);
+    let list = fetch("./resource/question_list.json")
+      .then((res) => res.json())
+      .then((obj) => {
+        console.log(obj);
+      });
   </script>
 </html>
