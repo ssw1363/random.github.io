@@ -1,7 +1,44 @@
+body {
+  max-width: 1000px;
+  height: 98vh;
+  background-image: url("../images/crumpled_paper_bg.jpg");
+  background-size: cover;
+}
+.header,
+.content,
+.footer {
+  width: 100%;
+  text-align: center;
+}
+.header {
+  height: 10%;
+  position: relative;
+}
+.content {
+  height: 80%;
+}
+.footer {
+  height: 10%;
+}
+.header .header_btn {
+  position: absolute;
+  right: 3%;
+  top: 30%;
+  width: 2.5em;
+  height: 2.5em;
+  background-size: cover;
+}
+.header.main .header_btn {
+  background-image: url("../images/settings.png");
+}
+.header.setting .header_btn {
+  background-image: url("../images/turn-back.png");
+}
+.header.result .header_btn {
+}
 .btn_box {
   width: 100%;
 }
 #pick_btn {
-  text-align: center;
   width: 100px;
 }

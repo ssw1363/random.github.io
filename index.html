@@ -8,15 +8,23 @@
     <title>YES/NO 랜덤 질문</title>
   </head>
   <body>
-    매운맛은 57번부터 ♥ <br />
-    <div class="btn_box">
-      <img
-        id="pick_btn"
-        onclick="pick_number()"
-        src="./resource/yes.png"
-        alt=""
-      />
+    <!-- 페이지 3개 -->
+    <!-- 기본((main) , 결과(result) , 세팅(setting)  -->
+    <div class="header main">
+      <div class="header_btn"></div>
+      매운맛은 57번부터 ♥ <br />
     </div>
+    <div class="content">
+      <div class="btn_box">
+        <img
+          id="pick_btn"
+          onclick="pick_number()"
+          src="./images/yes.png"
+          style=""
+        />
+      </div>
+    </div>
+    <div class="footer"></div>
   </body>
   <script>
     let list;
